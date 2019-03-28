@@ -21,8 +21,14 @@ export default class HomeScreen extends Component {
     ),
     headerRight: (
       <HeaderButtons HeaderButtonComponent={IoniconsHeaderButton}>
-        <Item title="register" iconName="ios-person-add" onPress={() => alert('ลงทะเบียน')} />
-        <Item title="Login" onPress={() => alert('Login')} />
+        <Item title="register" iconName="ios-person-add" 
+          onPress={ () => navigation.navigate('Register')}
+        />
+        <Item title="Login" 
+        
+        onPress={() => alert('Login')} 
+        
+        />
       </HeaderButtons>
     ),
     headerStyle: {
@@ -53,7 +59,13 @@ export default class HomeScreen extends Component {
                 <Text style={{ color: 'white', padding: 20 }}>เกี่ยวกับเรา</Text>
               </View>
         </TouchableHighlight>
-        <Button block success>
+        <Button block success
+        onPress={ () => {
+          this.props.navigation.navigate('Product');
+
+         }} 
+        >
+        
             <NbText>สินค้า</NbText>
           </Button>
       </View>

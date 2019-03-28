@@ -48,8 +48,8 @@ export default class ProductScreen extends Component {
   // }
 
   _renderItem = ({item}) => {
-let color = 'green'
-if(item.view>20000) color = 'red';
+let color = 'blue'
+if(item.view>20000) color = 'darkblue';
 
     return (
       <ListItem thumbnail 

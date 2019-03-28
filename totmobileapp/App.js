@@ -10,19 +10,26 @@ import NewsScreen from './screens/NewsScreen';
 import CameraScreen from './screens/CameraScreen';
 import ProductScreen from './screens/ProductScreen';
 import DetailScreen from './screens/DetailScreen';
+import WebScreen from './screens/WebScreen';
+import Reg from './screens/RegScreen';
+
+
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   About: AboutScreen,
   Product: ProductScreen,
-  Detail : DetailScreen
+  Detail : DetailScreen,
+  Register: Reg,
 });
 
 HomeStack.navigationOptions={tabBarLabel : 'หน้าหลัก'}
 
 //tab
 const NewsStack = createStackNavigator({
-  News:NewsScreen
+  News:NewsScreen,
+  Web :WebScreen
 });
 NewsStack.navigationOptions={tabBarLabel : 'ข่าวสาร'}
 
