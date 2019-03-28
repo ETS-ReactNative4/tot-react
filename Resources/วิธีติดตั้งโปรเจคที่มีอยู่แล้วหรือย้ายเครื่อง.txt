@@ -1,0 +1,9 @@
+﻿ขั้นตอนการติดตั้งโค้ดที่มีอยู่แล้ว หรือย้ายเครื่อง
+
+0. ไม่ต้อง copy โฟลเดอร์ node_modules ไปด้วย
+
+1. npm install หรือ yarn install
+
+2. สำหรับ android ให้เปิดโปรเจคในโฟลเดอร์ android รอจน sync successfully
+
+3.react-native run-android

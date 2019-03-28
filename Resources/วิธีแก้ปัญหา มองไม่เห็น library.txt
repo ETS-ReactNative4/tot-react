@@ -1,0 +1,13 @@
+﻿วิธีแก้ปัญหา มองไม่เห็น library ที่เพิ่งลงไป ยกตัวอย่างเช่น
+
+react-native-elements
+
+1. เปิด terminal ใน vs code ใช้คำสั่ง npm cache verify
+
+2. ลบโฟลเดอร์ node_modules จากโปรเจค
+
+3. ตรวจสอบไฟล์ package.json (ด้านนอกสุด) ลบ library บรรทัดนั้นๆ ออกไป (ถ้ามี)
+
+4. ใช้คำสั่ง npm install
+
+5. รัน react-native run-android ตามปกติ 

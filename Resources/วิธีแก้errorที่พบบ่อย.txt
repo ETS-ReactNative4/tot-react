@@ -1,0 +1,25 @@
+﻿วิธีแก้ error adb not recognized as internal or external command
+
+
+1. Copy SDK Location จาก Android Studio (เมนู Tools -> SDK Manager)
+
+ยกตัวอย่างเช่น C:\Users\CodingThailand\AppData\Local\Android\Sdk
+
+
+2. นำ Path จากข้อ 1 เพื่อ set path ให้กับ Windows ให้เปิด Command  Prompt แล้วกด Enter
+setx PATH "%PATH%;C:\Users\CodingThailand\AppData\Local\Android\Sdk\platform-tools"
+
+
+3. ปิด แล้วเปิด Command Prompt อีกครั้ง แล้วลองรัน react-native run-android ใหม่
+
+
+*สำหรับ Mac ที่มีปัญหา Permission ใช้คำสั่ง (Users คือ โฟลเดอร์ที่ต้องการกำหนดสิทธิ์)
+sudo chmod -R 777 Users
+
+----------------------
+Error: Unable to resolve module `./index` from `C:\totapp\node_modules\react-native\scripts/.`
+วิธีแก้รันคำสั่ง
+react-native start -- --reset-cache
+(เปิด cmd อีก 1 หน้าต่าง)
+แล้วสั่ง react-native run-android 
+

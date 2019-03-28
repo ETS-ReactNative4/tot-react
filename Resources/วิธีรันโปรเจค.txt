@@ -1,0 +1,3 @@
+﻿1. react-native start -- --reset-cache
+
+2. react-native run-android
