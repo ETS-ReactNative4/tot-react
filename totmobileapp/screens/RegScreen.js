@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View ,Alert, Keyboard} from 'react-native'
 import { DatePicker,Container, Header, Content, Form, Item, Input, Label,Button } from 'native-base';
 import format from 'date-fns/format'
 import axios from 'axios'
@@ -24,10 +24,23 @@ state = {
 }
 
 _register = async () =>  {
-    const apiUrl = 'https://api.codingthailand.com/api/register';
-    const response = await axios.post(apiUrl,this.state)
-    alert(JSON.stringify(response.data))
-    this.props.navigation.navigate('Home')
+    try {
+        const apiUrl = 'https://api.codingthailand.com/api/register';
+        const response = await axios.post(apiUrl,this.state)
+    
+        Alert.alert('ผลการทำงาน', response.data.message,[{text:'ตกลง'}] )
+        //JSON.stringify(response.data)
+        //this.props.navigation.navigate('Home')
+        
+    } catch (error) {
+        Alert.alert('ผลการทำงาน', error.response.data.errors.email[0],[{text:'ตกลง'}] )
+    } finally{
+        this.name.clear();
+        this.name.focus();
+        Keyboard.dismiss()
+    }
+    Keyboard.dismiss()
+
 }
 
   render() {
@@ -37,7 +50,10 @@ _register = async () =>  {
         <Form>
         <Item floatingLabel>
             <Label>Username</Label>
-            <Input 
+            <Input defaultValue='aaa'
+                ref= {(name) => {
+                    this.name = name
+                }}
                 onChangeText = {
                     (name) => {
                     this.setState({
@@ -50,7 +66,7 @@ _register = async () =>  {
           </Item>
           <Item floatingLabel>
             <Label>Email</Label>
-            <Input keyboardType='email-address'
+            <Input keyboardType='email-address' defaultValue='aaa@aaa.com'
                 onChangeText={(email)=>{
                     this.setState({email})
                     // alert(this.state.email)
@@ -60,7 +76,7 @@ _register = async () =>  {
           </Item>
           <Item floatingLabel last>
             <Label>Password</Label>
-            <Input secureTextEntry={true} 
+            <Input secureTextEntry={true} defaultValue='aaaaaaa'
              onChangeText={(password)=>{
                 this.setState({password})
                 // alert(this.state.password)
@@ -72,8 +88,6 @@ _register = async () =>  {
             <Label>Birth Date</Label>
           <DatePicker
             defaultDate={new Date()}
-            // minimumDate={new Date(2018, 1, 1)}
-            // maximumDate={new Date(2018, 12, 31)}
             locale={"th"}
             timeZoneOffsetInMinutes={undefined}
             modalTransparent={false}

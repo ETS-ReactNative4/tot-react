@@ -12,6 +12,7 @@ import ProductScreen from './screens/ProductScreen';
 import DetailScreen from './screens/DetailScreen';
 import WebScreen from './screens/WebScreen';
 import Reg from './screens/RegScreen';
+import LoginScreen from './screens/LoginScreen';
 
 
 
@@ -22,6 +23,7 @@ const HomeStack = createStackNavigator({
   Product: ProductScreen,
   Detail : DetailScreen,
   Register: Reg,
+  Login: LoginScreen,
 });
 
 HomeStack.navigationOptions={tabBarLabel : 'หน้าหลัก'}

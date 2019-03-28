@@ -25,8 +25,7 @@ export default class HomeScreen extends Component {
           onPress={ () => navigation.navigate('Register')}
         />
         <Item title="Login" 
-        
-        onPress={() => alert('Login')} 
+        onPress={ () => navigation.navigate('Login')}
         
         />
       </HeaderButtons>
