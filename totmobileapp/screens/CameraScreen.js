@@ -1,11 +1,29 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View ,TouchableOpacity,Image} from 'react-native'
 import { RNCamera, FaceDetector } from 'react-native-camera';
+import axios from 'axios'
 
 export default class CameraScreen extends Component {
 
 state = {
-  image : {}
+  image : {},
+  barcode : ''
+}
+
+async uploadImage (){
+    const uploadURL = 'https://api.codingthailand.com/api/upload';
+    const response = await axios.post(uploadURL,{
+      picture : this.state.image.uri
+    })
+    alert(response.data.data.message+'\n'+response.data.data.url)
+    // alert(response.data.data.message)
+}
+
+readBarcode = (e) => {
+  this.setState({
+    barcode : e.data
+  })
+  //alert(e.data)
 }
 
   render() {
@@ -26,6 +44,7 @@ state = {
             // onGoogleVisionBarcodesDetected={({ barcodes }) => {
             //   console.log(barcodes);
             // }}
+            onBarCodeRead={this.readBarcode}
           />
           )
 
@@ -35,6 +54,8 @@ state = {
           this.state.image.uri && (
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}
             >
+
+            <Text style={{fontSize:18,color: 'red'}}>{this.state.barcode}</Text>
               <Image source = {{uri:this.state.image.uri}}
                 style={{width:400,height:400,margin:10,flex:1}}
               />
@@ -66,6 +87,7 @@ state = {
           uri:'data:image/jpeg;base64,'+image.base64
         }
       })
+      this.uploadImage()
     }
   };
 }
