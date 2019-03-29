@@ -114,8 +114,7 @@ add  android:app:AndroidManifest.xml
      android:value="Your Google maps API Key Here"/>
 </application>
 then rebuild android studio
-api key : 
-AIzaSyBxKUrFS0IefrRdXxrbkPekeuYgQAmhG8Q
+api key : xxxxx
 add in build.gradle (project maps) (android studio) - 
 dependencies {
   ...
