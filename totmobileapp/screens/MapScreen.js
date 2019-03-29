@@ -39,7 +39,19 @@ export default class MapScreen extends Component {
             longitudeDelta: LONGITUDE_DELTA,
           }}
         >
-
+        <Marker
+        coordinate={{
+          latitude: LATITUDE,
+          longitude: LONGITUDE
+        }}
+        image={flagImg}
+        >
+        <Callout>
+          <View>
+            <Text style={{fontSize:20}}TOT สำนักงานใหญ่></Text>
+          </View>
+        </Callout>
+        </Marker>
          
 
         </MapView>
