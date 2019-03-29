@@ -46,7 +46,7 @@ export default class MenuScreen extends Component {
 
         <TouchableHighlight 
         onPress={ () => { 
-           
+          this.props.navigation.navigate('Map');
         } } style={{marginTop: 30}}>
               <View style={ {width: 250, backgroundColor: '#0075c4', alignItems: 'center' } }>
                 <Text style={{ color: 'white', padding: 20, fontSize: 20  }}>แผนที่</Text>

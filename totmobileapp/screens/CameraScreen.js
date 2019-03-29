@@ -23,7 +23,6 @@ readBarcode = (e) => {
   this.setState({
     barcode : e.data
   })
-  //alert(e.data)
 }
 
   render() {
