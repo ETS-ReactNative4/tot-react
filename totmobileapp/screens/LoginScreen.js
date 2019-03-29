@@ -33,7 +33,7 @@ _login= async () =>  {
         const token = response.data.access_token
       //  alert(JSON.stringify(error.response.data))
         //Alert.alert('ผลการทำงาน', token,[{text:'ตกลง'}] )
-        //this.props.navigation.navigate('Home')
+        
 
         //Store Profile
         await AsyncStorage.setItem('@token',JSON.stringify(response.data))
@@ -47,11 +47,14 @@ _login= async () =>  {
                     Authorization : 'Bearer '+ token
                 }   
                 })
-            alert(JSON.stringify(responseProfile.data))
+           // alert(JSON.stringify(responseProfile.data.data))
 
   
             //Store Profile
-            await AsyncStorage.setItem('@profile',JSON.stringify(responseProfile.data))
+            await AsyncStorage.setItem('@profile',JSON.stringify(responseProfile.data.data.user))
+           // alert(JSON.stringify(responseProfile.data.data.user))
+            this.props.navigation.navigate('Home')
+
         } catch (error) {
             alert('error : '+JSON.stringify(error))
         }
