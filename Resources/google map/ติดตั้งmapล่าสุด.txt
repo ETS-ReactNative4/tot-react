@@ -1,0 +1,1 @@
+﻿npm install --save "react-native-maps@react-native-community/react-native-maps#master"
