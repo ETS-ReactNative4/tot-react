@@ -48,7 +48,7 @@ export default class MapScreen extends Component {
         >
         <Callout>
           <View>
-            <Text style={{fontSize:20}}TOT สำนักงานใหญ่></Text>
+            <Text style={{fontSize:20}}>TOT สำนักงานใหญ่</Text>
           </View>
         </Callout>
         </Marker>
