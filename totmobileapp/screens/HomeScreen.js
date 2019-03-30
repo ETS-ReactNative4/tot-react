@@ -51,7 +51,7 @@ export default class HomeScreen extends Component {
         <TouchableHighlight 
         onPress={ () => {
           this.props.navigation.navigate('About',{
-             email: 'codingthailand@gmail.com'
+             email: 'tanyas@tot.co.th'
           }); 
         } }>
               <View style={ {width: 250, backgroundColor: '#0075c4', alignItems: 'center' } }>
